@@ -3,12 +3,19 @@
 <head>
     <title>Bishop Ireton Hack Soup</title>
     <style>
+	div {
+	    font-family: "Helvetica Neue", "Roboto";
+	    font-weight: 300;
+	}
+	a {
+	    text-decoration: none;
+	    background-color: white;
+	    border: 2px solid white;
+	    color: rgb(252, 141, 149);
+	}
+
         .info {
-            font-family: "Helvetica Neue";
-            font-weight: 300;
             font-size: 2em;
-            color: rgb(252, 141, 149);
-            position: relative;
             top: 50px;
         }
         .panel, .under {
@@ -20,11 +27,39 @@
             background-color: #fff;
             text-align: center;
         }
+	.day-schedule, .info-panel {
+	    margin-bottom: 5%;
+	}
+	.schedule-header, .info-header {
+	    font-size: 1.5em;
+	    font-weight: 500;
+	}
+	.schedule-header::after, .info-header::after {
+	    display: block;
+	    content: "";
+	    border: 2px solid black;
+	    height: 0;
+	    width: 40%;
+	    margin-top: 1%;
+	    margin-bottom: 2%;
+	}
+	.schedule-item, .info-item {
+	    font-size: 1.2em;
+	    margin-bottom: 1%;
+	}
+	.info-header, .info-item {
+	    color: rgb(252, 141, 149);
+	}
+	.info-header::after {
+	    border-color: rgb(252, 141, 149);
+	}
+	.time {
+	    font-weight: 400;
+	}
         .container {
-            border: 1px solid white;
+            border: 2px solid white;
 	    width: 40%;
 	    margin: auto;
-	    display: inline-block;
         }
 	.scrolloff {
 	    pointer-events: none ;
@@ -39,24 +74,36 @@
 	    display: flex;
 	    justify-content: center;
         }
-        #panel-2 {
-            background: rgba(255, 255, 255, 0.5);
-            -webkit-backdrop-filter: blur(60px);
-        }
+	#schedule, #register {
+	    text-align: left;
+	    padding: 1%;
+	}
 	#schedule {
 	    background-color: white;
 	    height: 80%;
 	}
 	#register {
 	    height: 50%;
+	    color: white;
+	}
+	#register-link-container {
+	    padding-top: 10%;
+	    text-align: center;
+	}
+	#register-link {
+	    padding: 10px;
 	}
 	#map-container, #map {
 	    width: 100%;
 	    height: 50%;
+	    margin-bottom: 2%;
 	}
 	#map {
 	    width: 100%;
-	    height: 100%
+	    height: 100%;
+	}
+	#address {
+	    color: rgb(252, 141, 149);
 	}
     </style>
 </head>
@@ -65,14 +112,42 @@
         <img src="banner.png" style="max-width:100%">
     </div>
     <div class="panel" id="panel-1">
-	<div class="container" id="schedule"></div>
-	<div class="container" id="register"></div>
+	<div class="container" id="schedule">
+	    <div class="info-panel">
+		<div class="info-header">Important Information</div>
+		<div class="info-item">Cost per person: $20</div>
+		<div class="info-item">It's Hack Soup, not Soupathon</div>
+		<div class="info-item">I'm sure there's more info than this</div>
+	    </div>
+	    <div class="day-schedule" id="day-1-schedule">
+		<div class="schedule-header">Day 1</div>
+		<div class="schedule-item"><span class="time">time-time:</span> Registration</div>
+		<div class="schedule-item"><span class="time">time-time:</span> Opening Ceremonies and Team Creation</div>
+		<div class="schedule-item"><span class="time">time:</span> Hack Soup Begins</div>
+		<div class="schedule-item"><span class="time">time-time:</span> Type of Workshop</div>
+		<div class="schedule-item"><span class="time">time-time:</span> Type of Workshop</div>
+		<div class="schedule-item"><span class="time">time-time:</span> Type of Workshop</div>
+	    </div>
+	    <div class="day-schedule" id="day-2-schedule">
+		<div class="schedule-header">Day 2</div>
+		<div class="schedule-item"><span class="time">time-time:</span> Type of Workshop</div>
+		<div class="schedule-item"><span class="time">time-time:</span> Type of Workshop</div>
+		<div class="schedule-item"><span class="time">time-time:</span> Type of Workshop</div>
+		<div class="schedule-item"><span class="time">time:</span> Hack Soup Ends</div>
+		<div class="schedule-item"><span class="time">time-time:</span> Awards and Closing Ceremonies</div>
+	    </div>
+	</div>
+	<div class="container" id="register">
+	    <div class="info">Bishop Ireton Hack Soup is open to anyone looking to learn programming skills of any kind. Not only that, but Hack Soup donates the majority of its proceeds to [idk, charity?].</div><br/>
+	    <div class="info">No prior experience in coding is necessary, so fill out the Google Form linked below to register now! [I haven't actually made one]</div>
+	    <div class="info" id="register-link-container"><a id="register-link" href="https://www.google.com">Register</a></div>
+	</div>
     </div>
     <div class="panel" id="panel-2">
 	<div id="map-container">
 	<div id="map" onclick="scrollOn()" onmouseleave="scrollOff()"></div>
 	</div>
-	<div class="info" id="directions">Bishop Ireton High School</br>201 Cambridge Rd, Alexandria, VA 22314</div>
+	<div class="info" id="address">Bishop Ireton High School<br/>201 Cambridge Rd, Alexandria, VA 22314</div>
     </div>
     
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
