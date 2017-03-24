@@ -3,6 +3,14 @@
 <head>
     <title>Bishop Ireton Hack Soup</title>
     <style>
+        .info {
+            font-family: "Helvetica Neue";
+            font-weight: 300;
+            font-size: 2em;
+            color: rgb(252, 141, 149);
+            position: relative;
+            top: 50px;
+        }
         .panel, .under {
             width: 100%;
             height: 100%;
@@ -10,55 +18,93 @@
             top: 0;
             left: 0;
             background-color: #fff;
+            text-align: center;
         }
-        .under {
-            z-index: -1;
+        .container {
+            border: 1px solid white;
+	    width: 40%;
+	    margin: auto;
+	    display: inline-block;
         }
-        
+	.scrolloff {
+	    pointer-events: none ;
+	}
+
         #panel-0 {
             background-image: url("bg-img.jpg");
             background-size: 100% 100%;
         }
         #panel-1 {
             background-color: rgb(252, 141, 149);
+	    display: flex;
+	    justify-content: center;
         }
         #panel-2 {
             background: rgba(255, 255, 255, 0.5);
             -webkit-backdrop-filter: blur(60px);
         }
-        
-        #under-2 {
-            background-image: url("under-2-bg.jpg");
-        }
-    
-    /* centre the content in the parallax layers */
-        .layer .title, .layer .description {
-            text-align: center;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-        }
+	#schedule {
+	    background-color: white;
+	    height: 80%;
+	}
+	#register {
+	    height: 50%;
+	}
+	#map-container, #map {
+	    width: 100%;
+	    height: 50%;
+	}
+	#map {
+	    width: 100%;
+	    height: 100%
+	}
     </style>
 </head>
 <body>
     <div class="panel" id="panel-0">
         <img src="banner.png" style="max-width:100%">
     </div>
-    <div class="panel" id="panel-1"></div>
-    <div class="panel" id="panel-2"></div>
-    <div class="under" id="under-2"></div>
+    <div class="panel" id="panel-1">
+	<div class="container" id="schedule"></div>
+	<div class="container" id="register"></div>
+    </div>
+    <div class="panel" id="panel-2">
+	<div id="map-container">
+	<div id="map" onclick="scrollOn()" onmouseleave="scrollOff()"></div>
+	</div>
+	<div class="info" id="directions">Bishop Ireton High School</br>201 Cambridge Rd, Alexandria, VA 22314</div>
+    </div>
     
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-    <script>
+    <script type="text/javascript">
     var width = window.innerWidth;
     var height = window.innerHeight;
     $(document).ready(function() {
         $("#panel-1").css("top", height + "px");
-        $("#under-2").css("top", height * 2 + "px");
+	var num = (height - $("#schedule").css("height").replace(/[^-\d\.]/g, '')) / 4;
+
         $("#panel-2").css("top", height * 2 + "px");
+        //$("#map").css({"width": width * 1.618 / 2.5 + "px", "height": width / 2.5 + "px", "left": (width / 2) - (width * 1.618 / 5) + "px", "top": (height / 2) - (width / 5) + "px"});
+
+	$('#map').addClass('scrolloff'); // set the pointer events to none on doc ready
+        $('#map-container').on('click', function () {
+            $('#map').removeClass('scrolloff'); // set the pointer events true on click
+        });
+
+        // you want to disable pointer events when the mouse leave the canvas area;
+
+        $("#map").mouseleave(function () {
+            $('#map').addClass('scrolloff'); // set the pointer events to none when mouse leaves the map area
+        });
     });
+
+    function myMap() {
+        var mapOptions = {
+            center: new google.maps.LatLng(38.809081, -77.080936), zoom: 15, mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+    }
     </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANzJG2lRUPqaghioGhb47PX4xlxN0Eaho&callback=myMap"></script>
 </body>
 </html>
