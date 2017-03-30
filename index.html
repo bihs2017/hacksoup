@@ -13,9 +13,8 @@
 	    border: 2px solid white;
 	    color: rgb(252, 141, 149);
 	}
-
         .info {
-            font-size: 1.5em;
+            font-size: 3vmin;
             top: 50px;
         }
         .panel, .under {
@@ -31,7 +30,7 @@
 	    margin-bottom: 5%;
 	}
 	.schedule-header, .info-header {
-	    font-size: 1.5vmin;
+	    font-size: 3.5vmin;
 	    font-weight: 500;
 	}
 	.schedule-header::after, .info-header::after {
@@ -44,7 +43,7 @@
 	    margin-bottom: 2%;
 	}
 	.schedule-item, .info-item {
-	    font-size: 1.2vmin;
+	    font-size: 2.4vmin;
 	    margin-bottom: 1%;
 	}
 	.info-header, .info-item {
@@ -64,7 +63,6 @@
 	.scrolloff {
 	    pointer-events: none ;
 	}
-
         #panel-0 {
             background-image: url("masterpiece.png");
             background-size: 100% 100%;
@@ -104,7 +102,7 @@
 	}
 	#address {
 	    color: rgb(252, 141, 149);
-	    font-size: 2vmin;
+	    font-size: 4vmin;
 	}
     </style>
 </head>
@@ -159,22 +157,17 @@
     $(document).ready(function() {
         $("#panel-1").css("top", height + "px");
 	var num = (height - $("#schedule").css("height").replace(/[^-\d\.]/g, '')) / 4;
-
         $("#panel-2").css("top", height * 2 + "px");
         //$("#map").css({"width": width * 1.618 / 2.5 + "px", "height": width / 2.5 + "px", "left": (width / 2) - (width * 1.618 / 5) + "px", "top": (height / 2) - (width / 5) + "px"});
-
 	$('#map').addClass('scrolloff'); // set the pointer events to none on doc ready
         $('#map-container').on('click', function () {
             $('#map').removeClass('scrolloff'); // set the pointer events true on click
         });
-
         // you want to disable pointer events when the mouse leave the canvas area;
-
         $("#map").mouseleave(function () {
             $('#map').addClass('scrolloff'); // set the pointer events to none when mouse leaves the map area
         });
     });
-
     function myMap() {
         var mapOptions = {
             center: new google.maps.LatLng(38.809081, -77.080936), zoom: 15, mapTypeId: google.maps.MapTypeId.ROADMAP
