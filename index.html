@@ -168,6 +168,7 @@
             $('#map').addClass('scrolloff'); // set the pointer events to none when mouse leaves the map area
         });
     });
+    $(window).resize(function(){location.reload();});
     function myMap() {
         var mapOptions = {
             center: new google.maps.LatLng(38.809081, -77.080936), zoom: 15, mapTypeId: google.maps.MapTypeId.ROADMAP
