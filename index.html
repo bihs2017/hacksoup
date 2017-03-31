@@ -65,7 +65,7 @@
 	}
         #panel-bg {
             background-image: url("bg.jpg");
-            background-size: 100% 100%;
+            background-size: cover;
 	    position: fixed;
         }
 	#panel-0 {
@@ -168,7 +168,18 @@
         $('#map-container').on('click', function () {
             $('#map').removeClass('scrolloff'); // set the pointer events true on click
         });
-        // you want to disable pointer events when the mouse leave the canvas area;
+	
+	var threshold = height * 2
+	$(window).scroll(function(){
+            if($(window).scrollTop() >= threshold){
+                $("#panel-bg").css("opacity", "0");
+            }
+            if($(window).scrollTop() < threshold){
+                $("#panel-bg").css("opacity", "1"); 
+            }
+        })
+	
+        // you want to disable pointer events when the mouse leave the canvas area
         $("#map").mouseleave(function () {
             $('#map').addClass('scrolloff'); // set the pointer events to none when mouse leaves the map area
         });
