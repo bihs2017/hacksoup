@@ -64,7 +64,7 @@
 	    pointer-events: none ;
 	}
         #panel-bg {
-            background-image: url("http://embassysuites3.hilton.com/resources/media/es/WASOTES/en_US/img/shared/full_page_image_gallery/main/ES_oldtown01_41_1280x430_FitToBoxSmallDimension_Center.jpg");
+            background-image: url("bg.jpg");
             background-size: 100% 100%;
 	    position: fixed;
         }
@@ -170,7 +170,6 @@
             $('#map').addClass('scrolloff'); // set the pointer events to none when mouse leaves the map area
         });
     });
-    $(window).resize(function(){location.reload();});
     function myMap() {
         var mapOptions = {
             center: new google.maps.LatLng(38.809081, -77.080936), zoom: 15, mapTypeId: google.maps.MapTypeId.ROADMAP
