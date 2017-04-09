@@ -1,2 +1,2 @@
 # HackSoupTest
-Official website for the 2017 Bishop Ireton HackSoup
+Official website for Bishop Ireton HackSoup
