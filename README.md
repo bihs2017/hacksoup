@@ -1,2 +1,2 @@
 # HackSoupTest
-Official website for Bishop Ireton HackSoup
+Official website of Bishop Ireton HackSoup
