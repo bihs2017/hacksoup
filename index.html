@@ -3,11 +3,6 @@
 <head>
     <title>Bishop Ireton Hack Soup</title>
     <style>
-	body {
-	    display: flex;
-	    flex-direction: column;
-	    justify-content: center;
-	}
 	div {
 	    font-family: "Helvetica Neue", "Roboto";
 	    font-weight: 300;
@@ -23,9 +18,11 @@
             top: 50px;
         }
         .panel, .under {
-	    position: relative;
-            width: 99%;
-            height: 99%;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
             background-color: #fff;
             text-align: center;
         }
@@ -69,7 +66,7 @@
         #panel-bg {
             background-image: url("Peter.JPG");
             background-size: cover;
-	    /*position: fixed;*/
+	    position: fixed;
         }
 	#panel-0 {
 	    background-color: transparent;
@@ -173,9 +170,9 @@
     var width = window.innerWidth;
     var height = window.innerHeight;
     $(document).ready(function() {
-        //$("#panel-1").css("top", height + "px");
-	//var num = (height - $("#schedule").css("height").replace(/[^-\d\.]/g, '')) / 4;
-        //$("#panel-2").css("top", height * 2 + "px");
+        $("#panel-1").css("top", height + "px");
+	var num = (height - $("#schedule").css("height").replace(/[^-\d\.]/g, '')) / 4;
+        $("#panel-2").css("top", height * 2 + "px");
         //$("#map").css({"width": width * 1.618 / 2.5 + "px", "height": width / 2.5 + "px", "left": (width / 2) - (width * 1.618 / 5) + "px", "top": (height / 2) - (width / 5) + "px"});
 	$('#map').addClass('scrolloff');
         $('#map-container').on('click', function () {
