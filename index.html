@@ -43,7 +43,7 @@
 	    margin-bottom: 2%;
 	}
 	.schedule-item, .info-item {
-	    font-size: 2.2vmin;
+	    font-size: 2.5vmin;
 	    margin-bottom: 1%;
 	}
 	.info-header, .info-item {
@@ -85,12 +85,15 @@
 	    height: 80%;
 	}
 	#register {
-	    height: 50%;
+	    height: 60%;
 	    color: white;
 	}
 	#register-link-container, #permission-form-container {
 	    padding-top: 10%;
 	    text-align: center;
+	}
+	#permission-form-container {
+	    padding-top: 5%;
 	}
 	#register-link, #permission-form-link {
 	    padding: 10px;
@@ -105,7 +108,7 @@
 	#map {
 	    width: 100%;
 	    height: 100%;
-	*/}
+	}*/
 	    
 	#address {
 	    color: rgb(252, 141, 149);
@@ -180,18 +183,10 @@
 	
 	var threshold = height * 2
 	$(window).scroll(function(){
-            if($(window).scrollTop() >= threshold){
-                $("#panel-bg").css("opacity", "0");
-            }
-            if($(window).scrollTop() < threshold){
-                $("#panel-bg").css("opacity", "1"); 
-            }
-        })
-	
-        // you want to disable pointer events when the mouse leave the canvas area
-        $("#map").mouseleave(function () {
-            $('#map').addClass('scrolloff'); // set the pointer events to none when mouse leaves the map area
-        });
+            if($(window).scrollTop() >= threshold){$("#panel-bg").css("opacity", "0");}
+            if($(window).scrollTop() < threshold){$("#panel-bg").css("opacity", "1"); }
+	});
+        $("#map").mouseleave(function () {$('#map').addClass('scrolloff');});
     });
     function myMap() {
         var mapOptions = {
