@@ -76,6 +76,10 @@
 	    display: flex;
 	    justify-content: center;
         }
+	#panel-2 {
+	    display: flex;
+	    justify-content: center;
+	    }
 	#schedule, #register {
 	    text-align: left;
 	    padding: 1%;
@@ -100,7 +104,7 @@
 	}
 	    
 	#map-container, #map {
-	    width: 100%;
+	    width: 70%;
 	    height: 50%;
 	}
 	#map {
@@ -166,10 +170,10 @@
         $("#panel-1").css("top", height + "px");
 	var num = (height - $("#schedule").css("height").replace(/[^-\d\.]/g, '')) / 4;
         $("#panel-2").css("top", height * 2 + "px");
-        $("#map").css({"width": width * 1.618 / 2.5 + "px", "height": width / 2.5 + "px", "left": (width / 2) - (width * 1.618 / 5) + "px", "top": (height / 2) - (width / 5) + "px"});
-	$('#map').addClass('scrolloff'); // set the pointer events to none on doc ready
+        //$("#map").css({"width": width * 1.618 / 2.5 + "px", "height": width / 2.5 + "px", "left": (width / 2) - (width * 1.618 / 5) + "px", "top": (height / 2) - (width / 5) + "px"});
+	$('#map').addClass('scrolloff');
         $('#map-container').on('click', function () {
-            $('#map').removeClass('scrolloff'); // set the pointer events true on click
+            $('#map').removeClass('scrolloff');
         });
 	
 	var threshold = height * 2
