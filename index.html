@@ -3,6 +3,11 @@
 <head>
     <title>Bishop Ireton Hack Soup</title>
     <style>
+	body {
+	    display: flex;
+	    flex-direction: column;
+	    justify-content: center;
+	}
 	div {
 	    font-family: "Helvetica Neue", "Roboto";
 	    font-weight: 300;
@@ -21,8 +26,8 @@
             width: 99%;
             height: 99%;
             position: absolute;
-            top: 0;
-            left: 0;
+	    margin-left: auto;
+	    margin-right: auto;
             background-color: #fff;
             text-align: center;
         }
@@ -170,9 +175,9 @@
     var width = window.innerWidth;
     var height = window.innerHeight;
     $(document).ready(function() {
-        $("#panel-1").css("top", height + "px");
-	var num = (height - $("#schedule").css("height").replace(/[^-\d\.]/g, '')) / 4;
-        $("#panel-2").css("top", height * 2 + "px");
+        //$("#panel-1").css("top", height + "px");
+	//var num = (height - $("#schedule").css("height").replace(/[^-\d\.]/g, '')) / 4;
+        //$("#panel-2").css("top", height * 2 + "px");
         //$("#map").css({"width": width * 1.618 / 2.5 + "px", "height": width / 2.5 + "px", "left": (width / 2) - (width * 1.618 / 5) + "px", "top": (height / 2) - (width / 5) + "px"});
 	$('#map').addClass('scrolloff');
         $('#map-container').on('click', function () {
