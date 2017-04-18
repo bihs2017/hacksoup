@@ -185,15 +185,13 @@
             if($(window).scrollTop() < threshold){$("#panel-bg").css("opacity", "1"); }
 	});
         $("#map").mouseleave(function () {$('#map').addClass('scrolloff');});
-    });
-/*	   
+    });	   
     function myMap() {
         var mapOptions = {
             center: new google.maps.LatLng(38.809081, -77.080936), zoom: 15, mapTypeId: google.maps.MapTypeId.ROADMAP
         }
        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-    }
-*/	    
+    }    
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANzJG2lRUPqaghioGhb47PX4xlxN0Eaho&callback=myMap"></script>
 </body>
